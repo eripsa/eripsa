@@ -1,27 +1,41 @@
 import React, { Component } from 'react';
 import  '../styles/design.css';
 import {Button} from 'react-bootstrap';
+import {product} from '../Mock/Const';
 
 class Product extends Component {
     render() {
       return (
-        <Button bsStyle="link" value={this.props.id}>
-        <div className="product" >
-        <img className="card-img-top" src={require('../Images/'+ this.props.data.image)} alt="Card cap"/>
-        <div className="card-body">
-            <h5 className="card-title font-weight-bold">{this.props.data.Name}</h5>
-            <p className="card-text text-wrap warp">{this.props.data.description}</p>
-            <p>₹{this.props.data.cost}</p>            
+        <div className="main thememain-white">
+            <div className="container content-main">
+                <div className="row">
+                    <div className="col-12">
+                        <h3>An introduction : </h3>
+                    </div>
+                </div>
+                <div className="row">
+                    {product.map((data) => {
+                    return <Product key={data.id} data={data} />
+                    })};    
+                    <div className="col-sm">
+                        <div>
+                            <img className="card-img-top" src="" alt="Card cap"/>
+                        </div>          
+                        <div className="card-body">
+                            <h5 className="card-title font-weight-bold">sfssssssssdd</h5>
+                            <p className="card-text text-wrap warp">gggggg</p>
+                            <p>₹ttt</p>            
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        </div>  
-        </Button>
+        
         );
     }
-  }
-  
-  export default Product;
+}
 
+/*class ProductList extends Component {
 
-
-
-                      
+}*/
+export default Product;

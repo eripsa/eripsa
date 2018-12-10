@@ -1,9 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+//import './style.css';
+import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
+import 'jquery';
+import * as serviceWorker from './serviceWorker';
+import {Carousel} from 'react-bootstrap';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
