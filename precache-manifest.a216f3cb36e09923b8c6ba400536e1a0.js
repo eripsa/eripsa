@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "/eripsa/static/media/Hero-Tall.b217daae.jpg"
   },
   {
-    "revision": "93612d8375381cd7c8df",
-    "url": "/eripsa/static/css/main.12218ed0.chunk.css"
+    "revision": "625663065c14e789afa1",
+    "url": "/eripsa/static/css/main.827e58ec.chunk.css"
   },
   {
     "revision": "b4a30bdded68c3915952977cb25fdf06",
     "url": "/eripsa/static/media/ios-cart.b4a30bdd.svg"
   },
   {
-    "revision": "e07efd200c2169cfa678",
-    "url": "/eripsa/static/js/1.e07efd20.chunk.js"
+    "revision": "fa236a152ceb36f02449",
+    "url": "/eripsa/static/js/1.fa236a15.chunk.js"
   },
   {
     "revision": "12994971377f8440ac80",
@@ -24,8 +24,8 @@ self.__precacheManifest = [
     "url": "/eripsa/static/media/user.af1a4575.jpg"
   },
   {
-    "revision": "93612d8375381cd7c8df",
-    "url": "/eripsa/static/js/main.93612d83.chunk.js"
+    "revision": "625663065c14e789afa1",
+    "url": "/eripsa/static/js/main.62566306.chunk.js"
   },
   {
     "revision": "42dbf6b90c34891d3799f171ef811f82",
@@ -40,11 +40,11 @@ self.__precacheManifest = [
     "url": "/eripsa/static/media/Saree.368e6385.jpg"
   },
   {
-    "revision": "e07efd200c2169cfa678",
-    "url": "/eripsa/static/css/1.5b25218e.chunk.css"
+    "revision": "fa236a152ceb36f02449",
+    "url": "/eripsa/static/css/1.39c295aa.chunk.css"
   },
   {
-    "revision": "757246e266dacaae5c69817fa3bba0e4",
+    "revision": "fdeaa426082c0396d9eff88b95a9f5f7",
     "url": "/eripsa/index.html"
   }
 ];
