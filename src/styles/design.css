@@ -90,3 +90,12 @@
    margin-right: 10px;
 }
 
+.productList{
+    
+}
+
+.productItems{
+    margin:5px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+}
