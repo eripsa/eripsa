@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-//import  '../styles/design.css';
-//import {Button} from 'react-bootstrap';
-//import MyLargeModal from './Login';
+import Login from './Login';
+
   
-class Header extends React.Component {
-  render() {
+class Header extends Component {
+
+  render() {     
     return (
       <div className="main thememain-header">
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light thememain-header">
-            <a className="navbar-brand" href="#" title="Eripsa" >Eripsa</a>
+            <a className="navbar-brand title" href="#" title="Eripsa" >Eripsa</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
@@ -23,13 +23,14 @@ class Header extends React.Component {
                   <a className="nav-link" href="#" title="Mobile">Mobile</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link disabled" href="#" title="Laptop" >Laptop</a>
+                  <a className="nav-link" href="#" title="Laptop" >Login</a>
                 </li>
               </ul>
-              <form className="form-inline my-2 my-lg-0">
+              {/* <form className="form-inline my-2 my-lg-0">
                 <input className="form-control mr-sm-2" type="search" placeholder="Search"></input>
                 <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-              </form>
+              </form>               */}
+              <Login />
             </div>
           </nav>
         </div>

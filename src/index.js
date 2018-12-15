@@ -5,7 +5,6 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import 'jquery';
 import * as serviceWorker from './serviceWorker';
-//import {Carousel} from 'react-bootstrap';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

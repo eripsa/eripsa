@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import  '../styles/design.css';
-import {Button} from 'react-bootstrap';
 import {product} from '../Mock/Const';
 
 class Product extends Component {
@@ -8,11 +7,7 @@ class Product extends Component {
       return (
         <div className="main thememain-white">
             <div className="container content-main">
-                <div className="row">
-                    <div className="col-12">
-                        <h3>An introduction : </h3>
-                    </div>
-                </div>
+                <br/>
                 <div className="row">
                     {product.map((data) => {
                     return <ProductList key={data.id} data={data} />
