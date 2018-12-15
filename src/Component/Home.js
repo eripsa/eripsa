@@ -9,11 +9,11 @@ import {product} from '../Mock/Const';
 class Home extends Component {
     render() {
       return (
-          <div >
-            <Header />
-            <Product />                     
-          </div>
-        );
+        <div >
+          <Header />
+          <Product />
+        </div>
+      );
     }
   }
   
