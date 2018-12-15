@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/eripsa/precache-manifest.a216f3cb36e09923b8c6ba400536e1a0.js"
+  "/eripsa/precache-manifest.34da137dce2815bae7af35ec325736dc.js"
 );
 
 workbox.clientsClaim();
