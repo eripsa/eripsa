@@ -1,15 +1,41 @@
 import React, { Component } from 'react';
 import  '../styles/design.css';
-import {product} from '../Mock/Const';
 
 class Product extends Component {
+
+    constructor(props){
+        super(props);
+          this.state ={
+         Product : []
+          }        
+      }    
+
+
+    componentDidMount(){        
+        this.products();
+     }
+
+     products(){
+        
+       fetch('http://172.24.133.230/eripsa-demo/jsondata/product_list.php' )
+     .then(response => {
+         return response.json();
+     }).then(data => {
+     this.setState({
+        Product: data.product_list
+     }); 
+     console.log(data.product_list);   
+    });
+}
+
+
     render() {
       return (
         <div className="main thememain-white">
             <div className="container content-main">
                 <br/>
                 <div className="row">
-                    {product.map((data) => {
+                    {this.state.Product.map((data) => {
                     return <ProductList key={data.id} data={data} />
                     })};
                 </div>
@@ -24,16 +50,15 @@ class ProductList extends Component {
     render() {
        return (
             <div className="col-sm-4 productList">
-                <div className="productItems">
+                <a href="/ProductList"><div className="productItems">
                     <div>
-                        <img className="card-img-top" src={require('../Images/'+ this.props.data.image)} alt="Card cap"/>
+                        <img className="card-img-top" src={this.props.data.image1} alt="Card cap"/>
                     </div>
                     <div className="card-body">
-                        <h5 className="card-title font-weight-bold">{this.props.data.name}</h5>
-                        <p className="card-text text-wrap warp">{this.props.data.description}</p>
-                        <p>${this.props.data.cost}</p>            
+                        <h5 className="card-title font-weight-bold">{this.props.data.product_name}</h5>                        
+                        <p>₹{this.props.data.product_price}</p>            
                     </div>
-                </div>
+                </div></a>
             </div>
        );
     }
