@@ -11,14 +11,13 @@ class Product extends Component {
           }        
       }    
 
-
     componentDidMount(){        
         this.products();
-     }
+    }
 
-     products(){
+    products(){
         
-       fetch('http://172.24.133.230/eripsa-demo/jsondata/product_list.php' )
+    fetch('http://172.24.133.230/eripsa-demo/jsondata/product_list.php' )
      .then(response => {
          return response.json();
      }).then(data => {

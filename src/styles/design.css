@@ -110,3 +110,7 @@
 #navbarTogglerDemo02 .form-inline{
   padding-right: 15px;
 }
+
+.loginCheck{
+  color:red;
+}

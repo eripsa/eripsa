@@ -4,15 +4,25 @@ import $ from 'jquery';
 class ProductDetails extends Component {
     
     constructor(props){
-        super(props);
-        this.state ={
-            ProductDetail : this.props.location.state.id            
-        }
+      super(props);
+      this.state ={
+          ProductDetail : this.props.location.state.id,
+          userCheck: false          
+      }
     }
     
 
     componentDidMount() {        
-        let data1 = this.props.location.state.id.id;
+      let data1 = this.props.location.state.id.id;  
+      var value = localStorage.getItem("user");
+      if(!((value === '')||(value === null))){
+          this.setState({userCheck : true});
+          //this.props.user('Hi ' + localStorage.getItem("username"));
+      }
+      else{
+        //this.props.user('Hi!');
+      }
+
       try {
         var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         var recognition = new SpeechRecognition();
@@ -170,12 +180,15 @@ class ProductDetails extends Component {
                                 </div> 
                                 <div className="d-flex col-sm-12 flex-wrap">
                                     <label className="labelBold">Price: </label> <label className="ml-2"> ${this.state.ProductDetail.product_price} </label>
-                                </div>                               
+                                </div>  
+                                {! this.state.userCheck && <div className="loginCheck d-flex col-sm-12 flex-wrap"><label>Please login to ask customer queries</label> </div>}
+                                { this.state.userCheck &&   
+                               <div>                           
                                <div className="d-flex col-sm-12 flex-wrap product-Top">
-                                    <button className="btn btn-success" id="start-record-btn" title="Start Recording" onClick={()=>this.setState({start : !this.state.start})} >Ask Eripsa</button>
+                                    <button className="btn btn-success" id="start-record-btn" title="Start Recording" >Ask Eripsa</button>
                                 </div> 
                                 <div className="d-flex col-sm-12 flex-wrap product-Top">
-                                    <button className="btn btn-success" id="save-note-btn" title="Save Queries" onClick={()=>this.setState({start : !this.state.start})}>send</button>
+                                    <button className="btn btn-success" id="save-note-btn" title="Save Queries" >send</button>
                                 </div> 
 
                                 <div className="Queries">
@@ -186,7 +199,8 @@ class ProductDetails extends Component {
                                    <p id="recording-instructions">Note: Press the <strong>Ask Eripsa</strong> button and allow access.</p>
 
                                 </div>
-
+                                </div>
+                                }
                             </div>
                         </div>
                     </div>

@@ -32,12 +32,12 @@ class Login extends React.Component {
            }        
          }).then(response => response.json())
           .then(jsondata => {
-              if(jsondata.user_id !== 0){
+              if(jsondata.user_id != 0){
                 this.props.user('Hi ' + jsondata.user_name);
                       this.setState({login : true});
                       localStorage.setItem('user',jsondata.user_id);
                       localStorage.setItem('username',jsondata.user_name);
-                      this.toggle();
+                      this.toggle();                      
                   }
                   else{
                       this.setState({
@@ -46,7 +46,7 @@ class Login extends React.Component {
                           error : true
                       });
                   }
-          }          
+            }          
           ); 
         }              
    }
