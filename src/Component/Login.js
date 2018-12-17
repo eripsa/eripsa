@@ -110,12 +110,10 @@ class Login extends React.Component {
               <img src={ require('../Images/user.png')} alt="user" />
             </DropdownToggle>
             <DropdownMenu right style={{ right: 'auto' }}>
-            <DropdownItem href="/Profile" >
-              <img src={require('../Images/person.svg')} style={{ height: 15 }} alt="profile"/> {' '}
+            <DropdownItem href="/Profile" ><img src={require('../Images/person.svg')} style={{ height: 15 }} alt="profile"/> {' '}
               Profile
               </DropdownItem>
-              <DropdownItem href="/Home" onClick={this.logout}>
-              <img src={require('../Images/power-standby.svg')} style={{ height: 15 }} alt="logout"/> {' '}
+              <DropdownItem href="/Home" onClick={this.logout}><img src={require('../Images/power-standby.svg')} style={{ height: 15 }} alt="logout"/> {' '}
               Logout</DropdownItem>
             </DropdownMenu>
       </Dropdown>}

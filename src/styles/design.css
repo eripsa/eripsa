@@ -106,3 +106,7 @@
 .labelBold{
   font-weight: bold !important;
 }
+
+#navbarTogglerDemo02 .form-inline{
+  padding-right: 15px;
+}
