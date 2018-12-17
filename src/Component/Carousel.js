@@ -3,16 +3,16 @@ import { UncontrolledCarousel } from 'reactstrap';
 
 const items = [
   {
-    src: require('../Images/Honor_8X.jpg'),
+    src: require('../Images/cor1.jpg'),
     caption : ''
 
   },
   {
-    src: require('../Images/Hero-Tall.jpg'),    
+    src: require('../Images/cor2.jpg'),    
     caption : ''
   },
   {
-    src: require('../Images/Offers.jpg'), 
+    src: require('../Images/cor3.jpg'), 
     caption : ''
   }
 ];

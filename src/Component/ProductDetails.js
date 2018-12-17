@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import Header from './Header';
 
-import Product from './Product';
-import Login from './Login';
-import {product} from '../Mock/Const';
 
-class Home extends Component {
+class productList extends Component {
+   
     render() {
+      
         return (
             <div className="main thememain-white">
                 <div className="container content-main">
@@ -25,7 +23,7 @@ class Home extends Component {
                                     <h3>Seller : Right: </h3>
                                 </div> */}
                                 <div className="col-sm-12">
-                                    <a href="#">Audio</a>
+                                    {/* <a href="#">Audio</a> */}
                                 </div>
                             </div>
                         </div>
@@ -36,4 +34,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default productList;
