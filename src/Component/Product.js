@@ -24,8 +24,7 @@ class Product extends Component {
      }).then(data => {
      this.setState({
         Product: data.product_list
-     }); 
-     console.log(data.product_list);   
+     });      
     });
 }
 
@@ -50,9 +49,8 @@ class Product extends Component {
 class ProductList extends Component {
     render() {
        return (
-            <div className="col-sm-4 productList">
-                {/* <a href="/ProductList"> */}
-                <Link to={{ pathname: '/ProductList', state: { id: this.props.data.id} }}>
+            <div className="col-sm-4 productList">                
+                <Link to={{ pathname: '/ProductList', state: { id: this.props.data} }}>
                 <div className="productItems">
                     <div>
                         <img className="card-img-top" src={this.props.data.image1} alt="Card cap"/>
@@ -61,7 +59,7 @@ class ProductList extends Component {
                         <h5 className="card-title font-weight-bold">{this.props.data.product_name}</h5>                        
                         <p>₹{this.props.data.product_price}</p>            
                     </div>
-                </div>My route</Link>
+                </div></Link>
             </div>
        );
     }

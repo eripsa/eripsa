@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import file from '../';
-import Product from './Product';
-import Login from './Login';
-import {product} from '../Mock/Const';
 import $ from 'jquery';
 
 class ProductDetails extends Component {
-    componentDidMount() {
+    
+    constructor(props){
+        super(props);
+        this.state ={
+            ProductDetail : this.props.location.state.id            
+        }
+    }
+    
+
+    componentDidMount() {        
+        let data1 = this.props.location.state.id.id;
       try {
         var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         var recognition = new SpeechRecognition();
@@ -83,9 +88,9 @@ class ProductDetails extends Component {
           const url = "http://172.24.133.230/eripsa-demo/jsondata/json_receive_notes.php";
           
           let data = {
-            customer_id: 2,
+            customer_id: localStorage.getItem('user'),
             retailer_id: 1,
-            product_id: 1,
+            product_id: data1,
             notes: noteContent,
             created: "2017-06-15 4:10:00"
           }
@@ -150,34 +155,35 @@ class ProductDetails extends Component {
                         <div className="col-lg-4 col-sm-4">
                             <div className="productLeftImage col-sm-12">
                                 <div className="productImage col-sm-12">
-                                    <img className="card-img-top" src={require('../Images/cake-dessert-food.jpg')} alt="Card cap"/>
+                                    <img className="card-img-top" src={this.state.ProductDetail.image1} alt="Card cap"/>
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-8 col-sm-8">
+                            <br/>
                             <div className="productDesc">
                                 <div className="col-sm-12 clear d-flex flex-wrap">
-                                    <h3>Desert Choco Cake </h3>
+                                    <h3>{this.state.ProductDetail.product_name}</h3>
                                 </div>
                                 <div className="d-flex col-sm-12 flex-wrap">
-                                    <label className="labelBold">Price:</label> <label> $500 </label>
-                                </div>
-                                <div className="d-flex col-sm-12 clear flex-wrap">
-                                    <label className="labelBold">Seller Name:</label> <label> Shopclues </label>
-                                </div>
+                                    <label className="labelBold">Description: </label> <label className="ml-2">  {this.state.ProductDetail.product_desc} </label>
+                                </div> 
+                                <div className="d-flex col-sm-12 flex-wrap">
+                                    <label className="labelBold">Price: </label> <label className="ml-2"> ${this.state.ProductDetail.product_price} </label>
+                                </div>                               
+                               <div className="d-flex col-sm-12 flex-wrap product-Top">
+                                    <button className="btn btn-success" id="start-record-btn" title="Start Recording" onClick={()=>this.setState({start : !this.state.start})} >Ask Eripsa</button>
+                                </div> 
                                 <div className="d-flex col-sm-12 flex-wrap product-Top">
-                                    <button className="btn btn-success" id="start-record-btn" title="Start Recording">Start Recognition</button>
-                                </div>
-                                <div className="d-flex col-sm-12 flex-wrap product-Top">
-                                    <button className="btn btn-success" id="save-note-btn" title="Save Queries">Send Queries</button>
-                                </div>
+                                    <button className="btn btn-success" id="save-note-btn" title="Save Queries" onClick={()=>this.setState({start : !this.state.start})}>send</button>
+                                </div> 
 
                                 <div className="Queries">
                                    <div className="input-single">
                                        <p id="note-textarea" placeholder="Create a new note by typing or using voice recognition." ></p>
                                    </div>
                                    
-                                   <p id="recording-instructions">Note: Press the <strong>Start Recognition</strong> button and allow access.</p>
+                                   <p id="recording-instructions">Note: Press the <strong>Ask Eripsa</strong> button and allow access.</p>
 
                                 </div>
 
