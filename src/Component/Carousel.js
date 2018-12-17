@@ -3,7 +3,7 @@ import { UncontrolledCarousel } from 'reactstrap';
 
 const items = [
   {
-    src: require('../Images/cor1.jpg'),
+    src: require('../Images/cor3.jpg'),
     caption : ''
 
   },
@@ -12,7 +12,7 @@ const items = [
     caption : ''
   },
   {
-    src: require('../Images/cor3.jpg'), 
+    src: require('../Images/cor1.jpg'), 
     caption : ''
   }
 ];
