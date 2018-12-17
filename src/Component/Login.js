@@ -22,39 +22,33 @@ class Login extends React.Component {
       this.dropdowntoggle = this.dropdowntoggle.bind(this);
   }
 
-  // login(){   
-  //   if(this.validateForm()) {   
-  //    fetch('http://172.24.133.230/eripsa-demo/jsondata/userlogin.php?username='+ this.state.username +'&password='+this.state.password,
-  //        {
-  //          method: 'POST',                                                           
-  //          headers: {       
-  //            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'            
-  //          }        
-  //        }).then(response => response.json())
-  //         .then(jsondata => {
-  //             console.log(jsondata);            
-          
-  //         }          
-  //         ); 
-  //       }              
-  //  }
-
-login(){
-  if(this.state.username === "admin" && this.state.password === "admin"){
-      this.props.user('Hi ' + this.state.username);
-      this.setState({login : true});
-      localStorage.setItem('user','1');
-      this.toggle();
-  }
-  else{
-      this.setState({
-          username : '',
-          password : '',
-          error : true
-      });
-  }
-
-}
+  login(){   
+    if(this.validateForm()) {   
+     fetch('http://172.24.133.230/eripsa-demo/jsondata/userlogin.php?email='+ this.state.username +'&password='+this.state.password,
+         {
+           method: 'POST',                                                           
+           headers: {       
+             'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'            
+           }        
+         }).then(response => response.json())
+          .then(jsondata => {
+              if(jsondata.user_id !== 0){
+                this.props.user('Hi ' + jsondata.user_name);
+                      this.setState({login : true});
+                      localStorage.setItem('user',jsondata.user_id);
+                      this.toggle();
+                  }
+                  else{
+                      this.setState({
+                          username : '',
+                          password : '',
+                          error : true
+                      });
+                  }
+          }          
+          ); 
+        }              
+   }
 
   componentDidMount(){
     var value = localStorage.getItem("user");
@@ -115,11 +109,11 @@ login(){
             </DropdownToggle>
             <DropdownMenu right style={{ right: 'auto' }}>
             <DropdownItem href="/Profile" >
-              <img src={require('../open-iconic/svg/person.svg')} style={{ height: 15 }} alt="profile"/> {' '}
+              <img src={require('../Images/person.svg')} style={{ height: 15 }} alt="profile"/> {' '}
               Profile
               </DropdownItem>
               <DropdownItem href="/Home" onClick={this.logout}>
-              <img src={require('../open-iconic/svg/power-standby.svg')} style={{ height: 15 }} alt="logout"/> {' '}
+              <img src={require('../Images/power-standby.svg')} style={{ height: 15 }} alt="logout"/> {' '}
               Logout</DropdownItem>
             </DropdownMenu>
       </Dropdown>}
