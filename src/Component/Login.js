@@ -36,6 +36,7 @@ class Login extends React.Component {
                 this.props.user('Hi ' + jsondata.user_name);
                       this.setState({login : true});
                       localStorage.setItem('user',jsondata.user_id);
+                      localStorage.setItem('username',jsondata.user_name);
                       this.toggle();
                   }
                   else{
@@ -54,7 +55,7 @@ class Login extends React.Component {
     var value = localStorage.getItem("user");
     if(!((value === '')||(value === null))){
         this.setState({login : true});
-        this.props.user(value);
+        this.props.user('Hi ' + localStorage.getItem("username"));
     }
     else{
       this.props.user('Hi!');
@@ -94,6 +95,7 @@ class Login extends React.Component {
 
   logout(){
     localStorage.setItem("user",'');
+    localStorage.setItem("username",'');
     localStorage.clear();
     this.setState({login : false});
     this.props.user('Hi!');

@@ -17,6 +17,6 @@ const items = [
   }
 ];
 
-const Slide = () => <div className="container"><UncontrolledCarousel items={items} /></div>;
+const Slide = () => <div className="container"><UncontrolledCarousel items={items} /></div>
 
 export default Slide;

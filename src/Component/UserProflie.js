@@ -2,26 +2,13 @@ import React, { Component } from 'react';
 import { Col, Form, FormGroup, Label, Input } from 'reactstrap';
 import {Redirect} from 'react-router-dom';
 
-const user_profile = [  
-    {  
-       "id":"1",
-       "name":"customer1",
-       "address":"1/D-1,Sipcot IT Park, First Main Road , 044 6740 4000",
-       "pincode":"603130",
-       "landmark":"SIPcot IT Park",
-       "mobile":"90436912345",
-       "user_name":"customer@gmail.com",
-       "status":"1",
-       "create_date":""
-    }
- ];
 
 class Profile extends Component {
 
     constructor(props){
         super(props); 
           this.state ={
-            UserDetail: user_profile[0]            
+            UserDetail: []      
           }
         }
 

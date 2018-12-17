@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import  '../styles/design.css';
 
 class Product extends Component {
@@ -37,7 +38,7 @@ class Product extends Component {
                 <div className="row">
                     {this.state.Product.map((data) => {
                     return <ProductList key={data.id} data={data} />
-                    })};
+                    })}
                 </div>
             </div>
         </div>
@@ -50,7 +51,9 @@ class ProductList extends Component {
     render() {
        return (
             <div className="col-sm-4 productList">
-                <a href="/ProductList"><div className="productItems">
+                {/* <a href="/ProductList"> */}
+                <Link to={{ pathname: '/ProductList', state: { id: this.props.data.id} }}>
+                <div className="productItems">
                     <div>
                         <img className="card-img-top" src={this.props.data.image1} alt="Card cap"/>
                     </div>
@@ -58,7 +61,7 @@ class ProductList extends Component {
                         <h5 className="card-title font-weight-bold">{this.props.data.product_name}</h5>                        
                         <p>₹{this.props.data.product_price}</p>            
                     </div>
-                </div></a>
+                </div>My route</Link>
             </div>
        );
     }
