@@ -6,11 +6,140 @@ import Login from './Login';
 import {product} from '../Mock/Const';
 import $ from 'jquery';
 
-//import * from '../script.js';
-
 class ProductDetails extends Component {
     componentDidMount() {
-        // Jquery here $(...)...
+      try {
+        var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        var recognition = new SpeechRecognition();
+      }
+      catch(e) {
+        console.error(e);
+        $('.no-browser-support').show();
+        $('.app').hide();
+      }
+
+      var noteTextarea = $('#note-textarea');
+      var instructions = $('#recording-instructions');
+      
+      var noteContent = '';
+
+      /*-----------------------------
+            Voice Recognition 
+      ------------------------------*/
+
+      recognition.continuous = true;
+
+      // This block is called every time the Speech APi captures a line. 
+      recognition.onresult = function(event) {
+        var current = event.resultIndex;
+
+        // Get a transcript of what was said.
+        var transcript = event.results[current][0].transcript;        
+        var mobileRepeatBug = (current == 1 && transcript == event.results[0][0].transcript);
+
+        if(!mobileRepeatBug) {
+          noteContent += transcript;
+          noteTextarea.val(noteContent);
+        }
+      };
+
+      recognition.onstart = function() { 
+        instructions.text('Voice recognition activated. Try speaking into the microphone.');
+      }
+
+      recognition.onspeechend = function() {
+        instructions.text('You were quiet for a while so voice recognition turned itself off.');
+      }
+
+      recognition.onerror = function(event) {
+        if(event.error == 'no-speech') {
+          instructions.text('No speech was detected. Try again.');  
+        };
+      }
+
+      /*-----------------------------
+            App buttons and input 
+      ------------------------------*/
+
+      $('#start-record-btn').on('click', function(e) {
+        if (noteContent.length) {
+          noteContent += ' ';
+        }
+        recognition.start();
+      });
+
+      // Sync the text inside the text area with the noteContent variable.
+      noteTextarea.on('input', function() {
+        noteContent = $(this).val();
+      });
+
+      $('#save-note-btn').on('click', function(e) {
+        recognition.stop();
+
+        if(!noteContent.length) {
+          instructions.text('Could not save empty note. Please add a message to your note.');
+        }
+        else {
+          const url = "http://172.24.133.230/eripsa-demo/jsondata/json_receive_notes.php";
+          
+          let data = {
+            customer_id: 2,
+            retailer_id: 1,
+            product_id: 1,
+            notes: noteContent,
+            created: "2017-06-15 4:10:00"
+          }
+
+          let apiData = JSON.stringify({
+            customer_enquiry: data
+          });
+
+          // Create an empty Headers instance
+          var headers = new Headers();
+
+          // Add a few headers
+          headers.append('Content-Type', 'text/plain');
+          headers.append('X-My-Custom-Header', 'CustomValue');
+
+          // Check, get, and set header values
+          headers.has('Content-Type'); // true
+          headers.get('Content-Type'); // "text/plain"
+          headers.set('Content-Type', 'application/json');
+
+          // Delete a header
+          headers.delete('X-My-Custom-Header');
+
+          // Add initial values
+          var headers = new Headers({
+            'Content-Type': 'text/plain',
+            'X-My-Custom-Header': 'CustomValue'
+          });
+
+          // Create our request constructor with all the parameters we need
+          var request = new Request(url, {
+              method: 'POST', 
+              body: apiData,
+              headers: headers
+          });
+
+          fetch(request)
+          .then(response => {
+            return response.json();
+          })
+          .then(function(data) {
+              $('#recording-instructions').css("color","green");
+              $('#recording-instructions').html("Send queries successfully.");
+          })
+          .catch(function(error) {
+            $('#recording-instructions').css("color","red");
+            $('#recording-instructions').html(error);
+          });
+
+          // Reset variables and update UI.
+          noteContent = '';
+          noteTextarea.val('');
+        }
+      });
     }
 
     render() {
@@ -30,17 +159,17 @@ class ProductDetails extends Component {
                                 <div className="col-sm-12 clear d-flex flex-wrap">
                                     <h3>Desert Choco Cake </h3>
                                 </div>
-                                <div className=" d-flex col-sm-12 flex-wrap">
-                                    <label>Price:</label> <label> $500 </label>
+                                <div className="d-flex col-sm-12 flex-wrap">
+                                    <label className="labelBold">Price:</label> <label> $500 </label>
                                 </div>
                                 <div className="d-flex col-sm-12 clear flex-wrap">
-                                    <label>Seller Name:</label> <label> Shopclues </label>
+                                    <label className="labelBold">Seller Name:</label> <label> Shopclues </label>
                                 </div>
                                 <div className="d-flex col-sm-12 flex-wrap product-Top">
                                     <button className="btn btn-success" id="start-record-btn" title="Start Recording">Start Recognition</button>
                                 </div>
                                 <div className="d-flex col-sm-12 flex-wrap product-Top">
-                                    <button className="btn btn-success" id="save-note-btn" title="Save Queries">Save Queries</button>
+                                    <button className="btn btn-success" id="save-note-btn" title="Save Queries">Send Queries</button>
                                 </div>
 
                                 <div className="Queries">
@@ -48,15 +177,8 @@ class ProductDetails extends Component {
                                        <p id="note-textarea" placeholder="Create a new note by typing or using voice recognition." ></p>
                                    </div>
                                    
-                                   <p id="recording-instructions">Press the <strong>Start Recognition</strong> 
-                                   button and allow access.</p>
+                                   <p id="recording-instructions">Note: Press the <strong>Start Recognition</strong> button and allow access.</p>
 
-                                   <h3>My Notes</h3>
-                                   <ul id="notes">
-                                       <li>
-                                           <p className="no-notes">You dont have any notes.</p>
-                                       </li>
-                                   </ul>
                                 </div>
 
                             </div>

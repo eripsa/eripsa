@@ -80,8 +80,29 @@
 
 .productDetailsPage .productImage{
    border: 1px solid #ced4da;
+   margin: 28px;
+   margin-top: 1px;
+   padding-top: 15px;
+   padding-bottom: 15px;
 }
 	
 .productDesc h3{
 	float: left;
+}
+
+.productLeftImage{
+    padding:10px;
+}
+
+.product-Top{
+    margin-top: 9px;
+}
+
+#recording-instructions{
+  text-align: left;
+  padding-left: 15px;
+}
+
+.labelBold{
+  font-weight: bold !important;
 }
