@@ -114,3 +114,9 @@
 .loginCheck{
   color:red;
 }
+
+.logoColor{
+  color: #bd2130 !important;
+  font-weight: bold;
+  font-size: 30px !important;
+}

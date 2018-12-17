@@ -20,7 +20,7 @@ class Header extends Component {
       <div className="main thememain-header">
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light thememain-header">
-            <a className="navbar-brand title" href="/Home" title="Eripsa" >Eripsa</a>
+            <a className="logoColor navbar-brand title" href="/Home" title="Eripsa" >Eripsa</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>

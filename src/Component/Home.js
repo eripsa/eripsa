@@ -5,7 +5,7 @@ import Product from './Product';
 class Home extends Component {
     render() {
       return (
-        <div >          
+        <div >
           <Slide />
           <Product />
         </div>
