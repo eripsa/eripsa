@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "456f8bc5469f9ab7f17d",
-    "url": "/eripsa/static/css/main.f39f8d26.chunk.css"
+    "revision": "a1664904061812e5c8eae535cabac10c",
+    "url": "/eripsa/static/media/cor3.a1664904.jpg"
   },
   {
-    "revision": "456f8bc5469f9ab7f17d",
-    "url": "/eripsa/static/js/main.456f8bc5.chunk.js"
+    "revision": "02735cb755e0460e30e0",
+    "url": "/eripsa/static/css/main.d9a4ee32.chunk.css"
   },
   {
-    "revision": "70d13a317fcfaf0813fc",
-    "url": "/eripsa/static/css/1.819c7c0f.chunk.css"
+    "revision": "161f31d49f8f023e636bd240931152fa",
+    "url": "/eripsa/static/media/power-standby.161f31d4.svg"
   },
   {
-    "revision": "70d13a317fcfaf0813fc",
-    "url": "/eripsa/static/js/1.70d13a31.chunk.js"
+    "revision": "529578099329affc9cac",
+    "url": "/eripsa/static/js/1.52957809.chunk.js"
   },
   {
     "revision": "12994971377f8440ac80",
@@ -24,8 +24,8 @@ self.__precacheManifest = [
     "url": "/eripsa/static/media/user.af1a4575.jpg"
   },
   {
-    "revision": "a1664904061812e5c8eae535cabac10c",
-    "url": "/eripsa/static/media/cor3.a1664904.jpg"
+    "revision": "02735cb755e0460e30e0",
+    "url": "/eripsa/static/js/main.02735cb7.chunk.js"
   },
   {
     "revision": "7e4e73d760377b7420799c6bff62ab51",
@@ -40,11 +40,11 @@ self.__precacheManifest = [
     "url": "/eripsa/static/media/person.828be069.svg"
   },
   {
-    "revision": "161f31d49f8f023e636bd240931152fa",
-    "url": "/eripsa/static/media/power-standby.161f31d4.svg"
+    "revision": "529578099329affc9cac",
+    "url": "/eripsa/static/css/1.b88e4ceb.chunk.css"
   },
   {
-    "revision": "6ae6f4b63ff45fa41b8fe8b80682baff",
+    "revision": "bb6bd0fb334ea0fd7a0c4897227fb43f",
     "url": "/eripsa/index.html"
   }
 ];
