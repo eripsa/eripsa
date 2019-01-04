@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import  '../styles/design.css';
+import {Data} from '../Mock/data';
 
 class Product extends Component {
 
@@ -16,15 +17,22 @@ class Product extends Component {
     }
 
     products(){
-        
-    fetch('http://172.24.133.230/eripsa-demo/jsondata/product_list.php' )
+   
+    console.log("sdsss==>"+JSON.stringify(Data));
+   
+    this.setState({
+        Product: Data.product_list
+    });    
+    
+    /*fetch(Data)
      .then(response => {
-         return response.json();
+console.log("sdsss==>"+JSON.stringify(response));
+         return response;
      }).then(data => {
      this.setState({
         Product: data.product_list
      });      
-    });
+    });*/
 }
 
 
